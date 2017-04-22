@@ -10,7 +10,10 @@ var DATE_FORMAT = 'HH:mm:ss'
 function initialize () {
   let app = Express()
 
-  app.use(Express.static('public'))
+  let staticOptions = {}
+  staticOptions.index = 'bundle.html'
+
+  app.use(Express.static('public', staticOptions))
 
   app.get('/time', onTimeRequest)
 
